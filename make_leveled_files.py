@@ -33,6 +33,6 @@ first_survey = min(surveys_merged['surveyTime'])
 surveys_merged['monthStart'] = (surveys_merged['surveyTime'].dt.year - first_survey.year) * 12 + (surveys_merged['surveyTime'].dt.month - first_survey.month)
 surveys_merged['monthEnd'] = surveys_merged['monthStart'] - max(surveys_merged['monthStart'])
 surveys_sorted = surveys_merged.sort_values(['schoolID','studentID','surveyTime'])
-surveys_sorted.to_csv('level3.csv',index=False,header=True)
+surveys_sorted.to_csv('level1.csv',index=False,header=True)
 print('There are {} total surveys'.format(len(surveys_sorted)))
 ## There are 89164 total surveys
