@@ -10,3 +10,5 @@ The data for this project is not publicly available as it contains sensitive stu
 - obtain `student-1718_after_additional_preprocess.csv` data
 - obtain `survey-answers-matched-scaled.csv` data
 - run `make_leveled_files.py` to create `level1.csv`, `level2.csv`, and `level3.csv`
+- load csv files into RStudio
+- save each as an SAV file (using haven library), such as `write_sav(level1, 'level1.sav')`
