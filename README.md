@@ -15,4 +15,4 @@ The data for this project is not publicly available as it contains sensitive stu
 - transfer files to Citrix and build MDM file
   + L3 ID = `school`
   + L2 ID = `student`
-  + see uploaded mdm and mdmt files
+  + see uploaded output files
