@@ -12,3 +12,7 @@ The data for this project is not publicly available as it contains sensitive stu
 - run `make_leveled_files.py` to create `level1.csv`, `level2.csv`, and `level3.csv`
 - load csv files into RStudio
 - save each as an SAV file (using haven library), such as `write_sav(level1, 'level1.sav')`
+- transfer files to Citrix and build MDM file
+  + L3 ID = `school`
+  + L2 ID = `student`
+  + see uploaded mdm and mdmt files
