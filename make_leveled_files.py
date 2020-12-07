@@ -22,6 +22,7 @@ surveys_filtered = surveys[['user_id','survey_id','timestamp_created','survey_qu
 surveys_filtered.columns = ['student','survey','time','emotion','valence','answer']
 surveys_answered = surveys_filtered.loc[surveys_filtered['answer'] > 0]
 surveys_merged = surveys_answered.merge(students_sorted, how='inner', on='student')
+surveys_merged = surveys_merged.drop(['prior','EOC'], axis=1)
 surveys_merged['time'] = pd.to_datetime(surveys_merged['time'], format='%Y-%m-%d %H:%M:%S')
 first_survey = min(surveys_merged['time'])
 surveys_merged['monthS'] = (surveys_merged['time'].dt.year - first_survey.year) * 12 + (surveys_merged['time'].dt.month - first_survey.month)
