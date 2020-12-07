@@ -1,13 +1,12 @@
 import pandas as pd
-import numpy as np
 
 # make level 3 (school) file
 # this file just contains schoolID, since we do not have any other school-level predictors
 df = pd.read_csv('student-1718_after_additional_preprocess.csv')
-schools = df['school_number_eoc']
-schools_unique = schools.drop_duplicates()
-schools_unique_sorted = schools_unique.sort_values()
-schools_unique_sorted.name = 'school'
+schools = df[['school_number_eoc', 'district_number_eoc']]
+schools_unique = schools.drop_duplicates(subset=['school_number_eoc'])
+schools_unique_sorted = schools_unique.sort_values(['school_number_eoc'])
+schools_unique_sorted.columns = ['school','district']
 
 # make level 2 (student) file
 # this file contains schoolID, studentID, and achievement scores at beginning (prior) and end (EOC) of the school year
@@ -33,7 +32,7 @@ surveys_sorted = surveys_merged.sort_values(['school','student','time'])
 # some of these were dropped when matching students with schools and surveys with students
 students_sorted = students_sorted.loc[students_sorted['student'].isin(surveys_sorted['student'])]
 students_sorted = students_sorted.loc[students_sorted['school'].isin(surveys_sorted['school'])]
-schools_unique_sorted = schools_unique_sorted.loc[schools_unique_sorted.isin(surveys_sorted['school'])]
+schools_unique_sorted = schools_unique_sorted.loc[schools_unique_sorted['school'].isin(surveys_sorted['school'])]
 
 # save everything to csv
 surveys_sorted.to_csv('level1.csv',index=False,header=True)
