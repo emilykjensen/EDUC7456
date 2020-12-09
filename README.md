@@ -5,6 +5,7 @@ The data for this project is not publicly available as it contains sensitive stu
 
 # What is contained here
 - python script `make_leveled_files.py` extracts the data into 3 leveled csv files
+- `output` folder with one output file from HLM for each research question and the mdm/mdmt files used to run the models
 
 # Steps to recreate the results
 - obtain `student-1718_after_additional_preprocess.csv` data
